@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form   enctype="multipart/form-data" method="POST">
+        
+        {% csrf_token %}
+
+        <table>
+            {{form.as_table}}
+        </table>
+        <!-- First Name <input name="name" type="text"><br>
+        Gender <br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br>
+        Address <textarea name="address" rows="4" cols="50"></textarea><br>
+        Date <input type="date" name="date"><br>
+        State <select name="state" id="state">
+            <option value="telangana">Telangana</option>
+            <option value="delhi">Delhi</option>
+            <option value="goa">Goa</option>
+            <option value="kerala">Kerala</option>
+          </select><br>
+        Use of electricity<br> 
+            <input type="checkbox" name="check" value="House Hold">
+            <label > House Hold</label><br>
+            <input type="checkbox" name="check" value="Farming">
+            <label > Farming</label><br>
+            <input type="checkbox" name="check" value="Office" >
+            <label > Office</label><br><br>
+        No.of units consumed <input type="text" name="units"><br>
+        Price <input type="text" name="price"><br>
+        Addhar proff <input type="file" name="myfile" accept="image/x-png,image/gif,image/jpeg" ><br> -->
+        
+
+        <input type="submit" value="Save" name="b1">
+    </form>
+</body>
+</html>

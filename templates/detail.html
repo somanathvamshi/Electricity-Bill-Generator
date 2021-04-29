@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+
+<div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-image">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Photo Proof</th>
+                            <th scope="col">Name,gender</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">From Date</th>
+                            <th scope="col">To Date</th>
+                            <th scope="col">Units Used</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Download Invoice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{dets.id}}</th>
+                            <td class="w-25">
+                                <img src="{{dets.image.url}} " class="img-fluid img-thumbnail" style="height: 200px; width: 200px;" alt="Sheep">
+                            </td>
+                            <td> {{dets.first_name}} {{dets.gender}}</td>
+                            <td>{{dets.address}},{{dets.state}}</td>
+                            <td>{{det.from_date}}</td>
+                            <td>{{det.to_date}}</td>
+                            <td>{{dets.no_units}}</td>
+                            <td>{{dets.price}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>   
+            </div>
+        </div>
+    </div>
+
+    <a  href="{% url 'elc-update' dets.id %}"><button class="btn btn-primary" style="margin-left: 500px;">Update</button></a>
+    <a  href="{% url 'elc-delete' dets.id %}"><button class="btn btn-primary" style="margin-left: 500px;">Delete</button></a>
+  
+</body>
+</html>

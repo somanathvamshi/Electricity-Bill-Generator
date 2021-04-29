@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body >
+    <h1>
+        Electricity Bill Generator
+    </h1>
+
+    <a href="{% url 'elc-create'  %}"><button class="btn btn-primary" style="margin-left: 500px;" >Create New Bill</button></a>
+  
+    <!-- <a href="{% url 'elc-create'  %}"><button >Create</button></a> -->
+    {% for det in dets %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-image">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Photo Proof</th>
+                            <th scope="col">Name,gender</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">From Date</th>
+                            <th scope="col">To Date</th>
+                            <th scope="col">Units Used</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Download Invoice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{det.id}}</th>
+                            <td class="w-25">
+                                <img src="{{det.image.url}} " class="img-fluid img-thumbnail" style="height: 200px; width: 200px;" alt="Sheep">
+                            </td>
+                            <td><a href="{% url 'elc-detail' det.id %}" >{{det.first_name}}</a>, {{det.gender}}</td>
+                            <td>{{det.address}},{{det.state}}</td>
+                            <td>{{det.from_date}}</td>
+                            <td>{{det.to_date}}</td>
+                            <td>{{det.no_units}}</td>
+                            <td>{{det.price}}</td>
+                            {% if det.download_pdf  %}
+                            <td><a  href="{% url 'elc-pdf' det.id %}"><button class="btn btn-primary" >Download Pdf</button></a></td>
+                            {% endif %}
+                        </tr>
+
+                    </tbody>
+                </table>   
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+     
+</body>
+</html>
